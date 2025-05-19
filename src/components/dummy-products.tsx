@@ -161,13 +161,24 @@ const DummyProducts = () => {
                       (item) => item.pid === product.id
                     );
 
-                    dispatch({
-                      type: existingItem ? "UPDATE_QUANTITY" : "ADD_ITEM",
-                      payload: {
-                        pid: product.id,
-                        quantity: existingItem ? existingItem.quantity + 1 : 1,
-                      },
-                    });
+                    if (existingItem) {
+                      dispatch({
+                        type: "UPDATE_QUANTITY",
+                        payload: {
+                          pid: product.id,
+                          quantity: existingItem.quantity + 1,
+                        },
+                      });
+                    } else {
+                      dispatch({
+                        type: "ADD_ITEM",
+                        payload: {
+                          pid: product.id,
+                          name: product.name,
+                          quantity: 1,
+                        },
+                      });
+                    }
                   }}
                 >
                   <PlusIcon />
