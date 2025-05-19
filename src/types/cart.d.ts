@@ -2,6 +2,7 @@ import type React from "react";
 
 export type CartItem = {
   pid: number;
+  name: string;
   quantity: number;
 };
 
