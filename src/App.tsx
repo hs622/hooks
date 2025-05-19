@@ -1,3 +1,5 @@
+import Cart from "./components/cart";
+import DummyProducts from "./components/dummy-products";
 
 function App() {
 
@@ -7,7 +9,8 @@ function App() {
         padding: "5em",
       }}
     >
-      Fresh Start
+      <Cart />
+      <DummyProducts />
     </div>
   );
 }
